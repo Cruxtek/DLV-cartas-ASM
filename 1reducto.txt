@@ -1,0 +1,4 @@
+%Ejemplo 1 ejercicios reduccion
+a:- not -a.
+b:- -b.
+c:- -b.

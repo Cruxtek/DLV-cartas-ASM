@@ -1,0 +1,7 @@
+%Ejercicio 3 reducto
+a:- not b.
+b:- not a.
+
+a:- not b.
+b:- not a.
+p:- not p.

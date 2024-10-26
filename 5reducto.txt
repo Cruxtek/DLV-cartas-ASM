@@ -1,0 +1,3 @@
+%Ejercicio 5 reducto
+a:-  -b.
+b:-  -a.

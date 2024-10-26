@@ -1,0 +1,5 @@
+%Ejercicio 4 reducto
+a:- not b.
+b:- not a.
+p:- not p.
+p:- a.
