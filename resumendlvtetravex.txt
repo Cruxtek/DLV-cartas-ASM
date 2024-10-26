@@ -1,0 +1,4 @@
+theorem k (the infinety lemma) every infinite oriented tree in the wich
+every vertex has finite degree has an infinite path to the root, that 
+is, an infinite sequence of vertices V0,V1 V2 ... in which V0 is the
+root and fin(e[Vj+1])=vj for all j>=0

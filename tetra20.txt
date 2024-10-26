@@ -1,0 +1,15 @@
+%tetravex
+ficha(1,9,5,2,9).
+ficha(2,9,1,3,8).
+ficha(3,3,7,5,4).
+ficha(4,5,3,5,7).
+ficha(5,8,9,8,7).
+ficha(6,8,7,3,1).
+ficha(7,4,7,1,6).
+ficha(8,6,8,9,1).
+ficha(9,6,2,5,5).
+%en el punto dl
+
+%fluentes, initaly go concurrency 
+Tetra(N,L,U,A,D):-ficha(N,L,_,_,D),ficha(N,_,U,A,_).
+:-Tetra(N,I,U,A,D):-Tetra(N1,L1,U1,A2,D2),I1!=D2,U1!=A2.

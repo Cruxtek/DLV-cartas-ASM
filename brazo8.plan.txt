@@ -1,0 +1,40 @@
+fluents:
+	sobre(C,L) requires cubo(C), lugar(L).
+	ocupado(C) requires lugar(L).
+	enganchado(C) requires cubo(C).
+	disponible.
+
+actions:
+	agarrar(C) requires cubo(C).
+	mover(C,L) requires cubo(C), lugar(L).
+	soltar(C,L) requires cubo(C), lugar(L).
+
+always:
+	executable agarrar(C) if ocupado(C), cubo(C), disponible.
+	caused ocupado(C) if sobre(C1,C), cubo(C), cubo(C1), C1<>C.
+	caused -disponible after agarrar(C),cubo(C),disponible.
+	caused enganchado(C) after agarrar(C),cubo(C), disponible.
+	
+	executable mover(C,L) if not disponible, enganchado(C), cubo(C), lugar(L), C<>L.
+	caused ocupado(C) after mover(C1,C), cubo(C1), cubo(C), C1<>C. 
+	caused sobre(C,L) after mover(C,L),cubo(C), lugar(L), C<>L.
+	caused -sobre(C,L1) after mover(C,L), sobre(C,L1), cubo(C), lugar(L), L<>L1.
+	
+	executable soltar(C,L) if sobre(C,L), cubo(C), lugar(L), not disponible.
+	inertial sobre(C,L).
+	caused disponible after soltar(C,L), cubo(C), lugar(L), C<>L.
+	caused sobre(C,L) after soltar(C,L), cubo(C), lugar(L).
+	caused -enganchado(C) after soltar(C,L).
+
+noConcurrency.
+
+
+initially:
+	sobre(b,a). sobre(b,table). sobre(c,table).
+		
+goal:
+	sobre(a,b), sobre(b,c), sobre(c,table) ? (8)
+
+
+
+	

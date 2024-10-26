@@ -1,0 +1,9 @@
+%ejercicio brazo robotico
+%consta de mover ocho cajas a este codigo se llamara 1 que seria una
+%de tantas para poderlo llamar a travez de un main
+
+location(mesa) :- true.
+true.
+location (B) :- block(B).
+block(a). block(b). block(C).
+%block(d). block(e). block(f). block(g). block(h).

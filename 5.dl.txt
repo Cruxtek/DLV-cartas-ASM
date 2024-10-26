@@ -1,0 +1,10 @@
+true.
+lugar(table):-true.
+lugar(e):-cubo(e).
+cubo(a).
+cubo(b).
+cubo(c).
+cubo(d).
+cubo(e).
+brazo.
+

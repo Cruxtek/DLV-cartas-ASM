@@ -1,0 +1,5 @@
+rel(a,b). rel(b,c). rel(c,d). rel(d,e). rel(e,a).
+nodo(X):- rel(X,_). nodo(X):- rel(_,X).
+
+pinta(X,rojo) v pinta(X,azul) v pinta(X,negro):- nodo(X).
+:-pinta(N1,C), pinta(N2,C), rel(N1,N2).

@@ -1,0 +1,8 @@
+cubo(a).cubo(b).cubo(c).cubo(d).cubo(e).
+%cubo(f). cubo(g).cubo(h).
+true.
+lugar(table):-true.
+lugar(B):-cubo(B).
+brazo.
+
+

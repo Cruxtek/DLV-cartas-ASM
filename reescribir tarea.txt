@@ -1,0 +1,40 @@
+fluents:
+	on(B,L) requires block(B), location(L).
+	occupied(B) requires location(L).
+	hooked(B) requires block(B).
+	avail. 
+	
+actions:
+	grab(B) requires block(B).
+	move(B,L) requires block(B), location(L).
+	loose(B,L) requires block(B), location(L).
+
+always:
+	executable grab(B) if not occupied(B), block(B), avail.
+	caused occupied(B) if on(B1,B), block(B), block(B1), B1<>B.
+	caused -avail after grab(B), block(B), avail.
+	caused hooked(B) after grab(B), block(B), avail.
+	
+	executable move(B,L) if not avail, hooked(B), block(B), location(L), B<>L.
+	caused occupied(B) after move(B1,B), block(B1), block(B), B1<>B.
+	%caused hooked(B1) after move(B1,B), block(B1), block(B), B1<>B.
+	caused on(B,L) after move(B,L), block(B), location(L), B<>L.
+	caused -on(B,L1) after move(B,L), on(B,L1), block(B), location(L), L<>L1.
+	
+	
+	executable loose(B,L) if on(B,L), block(B), location(L), not avail. 
+	inertial on(B,L).
+	caused avail after loose(B,L), block(B), location(L), B<>L.
+	caused on(B,L) after loose(B,L), block(B), location(L).
+	caused -hooked(B) after loose(B,L).
+	
+	
+noConcurrency.
+
+initially:  
+	on(b,a). on(b,table). on(c,table).
+	
+goal: 
+	on(a,b), on(b,c), on(c,table) ? (5)
+	
+

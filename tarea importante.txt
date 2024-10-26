@@ -1,0 +1,39 @@
+%brazo en español para explicar
+fluents:
+	sobre(C,L) requieres cubo(C), ubicacion(L).
+	ocupado(C) requieres ubicacion(C).
+	enganchado(C) requieres cubo(C).
+	disponible.
+
+actions:
+	agarrar(C) requieres cubo(C).
+	mover(C,L) requieres cubo(C),ubicacion(L)
+	soltar(C,L) requieres cubo(C), ubicacion(L), L<>C.
+
+always: 
+	executable agarrar(C) if disponible, not ocupado(C).
+	executable soltar(C,L) if -disponible, not ocupado(L), enganchado(C).
+	
+	%inertial sobre(C,L).
+	
+	caused ocupado(C) if sobre(C1,C), cubo(C).
+	caused ocupado(C) after soltar(C1,C), cubo(C), C1<>C.
+  	caused sobre(C,L) after soltar(C,L).
+	caused -sobre(C,L1) after soltar(C,L),sobre(C,L1), L<>L1.
+	caused -sobre(C,L) after agarrar(C).
+	caused -disponible after agarrar(C).
+	caused disponible after soltar(C,L).
+	caused enganchado(C) after agarrar(C).
+
+noConcurrency.
+
+
+initially:
+	sobre(a,table). sobre(b,table). sobre(c,table).
+		
+goal:
+	sobre(a,b), sobre(b,c), sobre(c,table) ? (50)
+
+
+
+	

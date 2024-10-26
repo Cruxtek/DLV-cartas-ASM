@@ -1,0 +1,17 @@
+fluents: Tetra(W,X,Y,Z)
+		requires
+Actions:
+			requires
+Always:
+ 
+	executable if not
+	caused
+	after
+	inertial
+	casued
+
+noConcurrency
+
+initially:
+
+goal: ? (3)

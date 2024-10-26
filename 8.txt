@@ -1,0 +1,17 @@
+%El problema de los rectangulos
+%Enunciado: Un rectangulo se divide en seis
+%rectangulos menores como se indica en la figura. 
+%Demostrar que si cada una de los rectangulos menores
+%tiene un lado cuya medida es un numero entero
+%entonces la medida de alguno de los lados del rectangulo
+%mayor es un numero entero.
+base(1..6).
+altura(1..6).
+%Representacion
+%base: la base del rectangulo mayor es un numero entero
+
+%altura: la altura del rectangulo mayor es un numero entero
+
+%base(X):la base del rectangulo X es un numero entero 
+
+%altura(x): la altura del rectangulo X es un numero entero

@@ -1,0 +1,4 @@
+initially: on(a,table). on(b,table). on(c,a). -on(d,c).
+           total on(X,Y).
+securePlan.
+goal:      on(a,c), on(c,d), on(d,b), on(b,table)? (4)

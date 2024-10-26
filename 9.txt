@@ -1,0 +1,22 @@
+%El problema de Ramsey
+%Enunciado: Probar el caso mas simple del teorema de
+%Ramsey: entre seis personas siempre hay (al menos)
+%tres tales que cada una conoce a las otras dos o cada
+%una no conoce a ninguna de las otras dos.
+%Representacion:
+%1,2,3,4,5,6 representan a las personas
+%pij (1 = i < j = 6) indica que las personas i y j se conocen.
+
+%i<6 personas j<6 personas y p es la relacion.
+
+
+%definimos pi y pj
+pi(1..6).
+pj(1..6).
+
+%es tautologia donde
+%definimos que Pij(1<=i<j<=6) indica que las personas i y j se 
+%conocen
+pij(I,1) v pij(I,2) v pij(I,3) v pij(I,4) v pij(I,5) v pij(I,6):- pi(I).
+pij(1,J) v pij(2,J) v pij(3,J) v pij(4,J) v pij(5,J) v pij(6,J):- pj(J).
+

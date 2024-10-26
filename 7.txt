@@ -1,0 +1,14 @@
+%Enunciado: Cuatro palomas comparten tres huecos. 
+%Demostrar que dos palomas tienen que estar en la misma hueco.
+%Representación: pihj (i = {1, 2, 3, 4} y j = {1, 2, 3}) representa
+%que la paloma i está en el hueco j.
+%Representamos las palomas
+
+palomas(1..4).
+huecos(1..3).
+%representacion de hechos donde las 2 palomas 
+%deben estar en un hueco
+pihj(I,J):-palomas(I),huecos(J).
+nido(I1,I2,J):- palomas(I1), palomas(I2),huecos(J),I1<>I2.
+
+
